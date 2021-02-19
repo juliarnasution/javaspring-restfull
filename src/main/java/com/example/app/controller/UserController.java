@@ -30,8 +30,8 @@ public class UserController {
     public List<User> getUsers(){
         return userService.getUser();
     }
-    @GetMapping(params = "id")
-    public Optional<User> getUser(@RequestParam Long id){
+    @GetMapping("/{id}")
+    public Optional<User> getUserById(@PathVariable("id") Long id){
         return userService.findUserById(id);
     }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductController {
     @Autowired
     private ProductService productService;
@@ -39,8 +39,8 @@ public class ProductController {
         return productService.getProduct();
     }
 
-    @GetMapping(params = "id")
-    public Optional<Product> getProductById(@RequestParam Integer id){
+    @GetMapping("/{id}")
+    public Optional<Product> getProductById(@PathVariable("id") Integer id){
         return productService.getProductById(id);
     }
 }
